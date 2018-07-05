@@ -48,9 +48,9 @@ class Pub
     if
       customer.buy_drink(drink) != 0 && customer.alcohol_level < 20 && customer.age >= 18 && drink_stock.include?(drink)
       then
-      @till = @till + customer.buy_drink(drink)
-      @drink_stock.delete(drink)
-      customer.alcohol_level += drink.alcohol_units
+        @till += drink.price
+        @drink_stock.delete(drink)
+        customer.alcohol_level += drink.alcohol_units
   else
     return "Water maybe?"
   end
